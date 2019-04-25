@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/main">Main</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
@@ -9,6 +9,7 @@
 </template>
 
 <style lang="scss">
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -17,7 +18,10 @@
   color: #2c3e50;
 }
 #nav {
-  padding: 30px;
+  font-size: 16px;
+  padding: 10px 0 14px;
+  height: 40px;
+  font-weight: 500;
   a {
     font-weight: bold;
     color: #2c3e50;
