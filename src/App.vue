@@ -1,8 +1,15 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/main">Main</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">Главная</router-link> |
+      <router-link to="/profile">Профиль</router-link> |
+      <router-link to="/subjects">Выбор</router-link> |
+      <router-link to="/search">Поиск противника</router-link> |
+      <router-link to="/quiz">Сессия</router-link> |
+      <router-link to="/quizresult">Результаты</router-link> |
+      <router-link to="/about">О викторине</router-link> |
+      <router-link to="/signin">Вход</router-link> |
+      <router-link to="/signup">Регистрация</router-link>
     </div>
     <router-view/>
   </div>
@@ -16,6 +23,10 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 10px;
 }
 #nav {
   font-size: 16px;
