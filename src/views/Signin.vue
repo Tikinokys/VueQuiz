@@ -7,9 +7,7 @@
           <input type="login" id="inputLogin" class="form-control" placeholder="Логин" v-model="loginData.username" required autofocus>
           <label for="inputPassword" class="sr-only">Пароль</label>
           <input type="password" id="inputPassword" class="form-control" placeholder="Пароль" v-model="loginData.password" required>
-          <div class="checkbox mb-3">
 
-          </div>
           <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
         </form>
     </div>
@@ -18,6 +16,13 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+
+
+Component.registerHooks([
+  'beforeRouteEnter',
+  'beforeRouteUpdate',
+  'beforeRouteLeave',
+]);
 
 @Component
 export default class SignIn extends Vue {
@@ -29,16 +34,36 @@ export default class SignIn extends Vue {
     super();
   }
 
+  public beforeRouteEnter (to: any, from: any, next: () => {}) {
+    console.log('beforeRouteEnter');
+    next();
+  }
+
+  public beforeRouteLeave (to: any, from: any, next: () => {}) {
+    console.log('beforeRouteLeave');
+    next();
+  }
+
+  public beforeRouteUpdate(to: any, from: any, next: () => {}) {
+    if(this.apiToken() == null){
+      console.log('Token == null');
+    }else{
+      console.log('Token != null');
+    }
+    next();
+  }
+
   public signin(event: any) {
     event.preventDefault();
     this.$store.dispatch('auth', this.loginData).then(() => {
-      console.log(this.apiToken());
+      this.$router.replace('/');
     });
   }
 
   get apiToken() {
     return this.$store.getters.apiToken;
   }
+
 }
 
 </script>

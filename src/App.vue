@@ -9,7 +9,8 @@
       <router-link to="/quizresult">Результаты</router-link> |
       <router-link to="/about">О викторине</router-link> |
       <router-link to="/signin">Вход</router-link> |
-      <router-link to="/signup">Регистрация</router-link>
+      <router-link to="/signup">Регистрация</router-link> |
+      <router-link to="/logout">Выйти</router-link>
     </div>
     <router-view/>
   </div>

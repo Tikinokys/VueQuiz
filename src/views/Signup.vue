@@ -1,23 +1,56 @@
 <template>
   <div id="app2">
     <div class="container">
-        <form class="form-signin">
+        <form @submit="signup" class="form-signin">
           <h1 class="h3 mb-3 font-weight-normal">Регистрация</h1>
           <label for="inputLogin" class="sr-only">Логин</label>
-          <input type="login" id="inputLogin" class="form-control" placeholder="Логин" required autofocus>
+          <input type="login" id="inputLogin" class="form-control" placeholder="Логин" v-model="regisrationData.username" required autofocus>
           <label for="inputEmail" class="sr-only">Email address</label>
-          <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+          <input type="email" id="inputEmail" class="form-control" placeholder="Email address" v-model="regisrationData.email" required autofocus>
           <label for="inputPassword" class="sr-only">Пароль</label>
-          <input type="password" id="inputPassword" class="form-control" placeholder="Пароль" required>
+          <input type="password" id="inputPassword" class="form-control" placeholder="Пароль" v-model="regisrationData.password" required>
           <label for="inputPassword2" class="sr-only">Повторите Пароль</label>
-          <input type="password" id="inputPassword2" class="form-control" placeholder="Повторите Пароль" required>
-          <div class="checkbox mb-3">
-          </div>
+          <input type="password" id="inputPassword2" class="form-control" placeholder="Повторите Пароль" v-model="regisrationData.password2" required>
+
           <button class="btn btn-lg btn-primary btn-block" type="submit">Зарегистрироваться</button>
         </form>
     </div>
   </div>
 </template>
+
+
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+@Component
+export default class SignUp extends Vue {
+  public regisrationData = {
+    username: '',
+    email: '',
+    password: '',
+    password2: '',
+  };
+  constructor() {
+    super();
+  }
+
+  public signup(event: any) {
+    if(this.regisrationData.password==this.regisrationData.password2){
+      event.preventDefault();
+      this.$store.dispatch('reg', this.regisrationData).then(() => {
+        this.$router.replace('/signin');
+      });
+    }else{
+      console.log('Пароли не совпадают');
+    }
+  }
+
+  get apiToken() {
+    return this.$store.getters.apiToken;
+  }
+}
+
+</script>
 
 
 <style lang="scss" scoped>
