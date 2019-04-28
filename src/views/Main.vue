@@ -1,9 +1,10 @@
 <template>
 	<div id="app2">
+		<h1 id="h2">Онлайн викторина</h1>
 		<h1 id="h1">CQUIZ</h1>
 		<div class="main">
-			<p><b>CQuiz</b> - проверьте свои знания в области высшей математики. </p>
-			<button id="btn">Начать играть</button>
+			<p>Проверьте свои знания в области высшей математики. </p>
+			<button id="btn" class="btn btn-outline-success">Начать играть</button>
 		</div>
 	</div>
 </template>
@@ -13,20 +14,26 @@
 <style lang="scss" scoped>
 
 #app2 {
-  font-size: 26px;
-  font-family: serif;
+  margin-top: 30px;
+  font-size: 24px;
+  font-family: sans-serif;
 }
 
 .main{
-	font-size: 35px;
+	margin-top: 35px;
+	font-size: 34px;
 }
 
 #h1{
 	font-size: 60px;
 }
 
+#h2{
+	font-size: 45px;
+}
+
 #btn{
-	font-family: serif;
+	font-family: sans-serif;
 	margin-top: 15px;
 	font-size: 36px;
 }

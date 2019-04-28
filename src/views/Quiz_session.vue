@@ -1,16 +1,16 @@
 <template>
 	<div id="app2">
 		<div class="main">
-			<div class="container">
+			<div class="container my-3 py-1 bg-white rounded shadow-sm">
 				<div class="row">
 					<div class="col">
 						<p class="p1">Очки: 100</p>
 					</div>
 					<div class="col">
-						<p class="p1">60</p>
+						<p class="p2">28</p>
 					</div>
 					<div class="col">
-						<p class="p1">Вопрос: 1/5</p>
+						<p class="p1">Вопрос: 3/5</p>
 					</div>
 				</div>
 				<div class="row">
@@ -20,43 +20,43 @@
 				</div>
 				<div class="row">
 					<div class="col">
-						<button id="answ">Интервал</button>
+						<button id="answ" class="btn btn-outline-secondary btn-lg">Интервал</button>
 					</div>
 					<div class="col">
-						<button id="answ">Отрезок</button>
+						<button id="answ" class="btn btn-outline-secondary btn-lg">Отрезок</button>
 					</div>
 					<div class="w-100"></div>
 					<div class="col">
-						<button id="answ">Окрестность</button>
+						<button id="answ" class="btn btn-outline-secondary btn-lg">Окрестность</button>
 					</div>
 					<div class="col">
-						<button id="answ">Предел</button>
+						<button id="answ" class="btn btn-outline-secondary btn-lg">Предел</button>
 					</div>
 				</div>
 
-					<button id="btn-accept">Ответить</button>
+					<button id="btn-accept" class="btn btn-success">Ответить</button>
 				
 				<div class="container">
-					<div class="row">
-						<div class="col">
-							<div class="row">
-								<div class="row_pl">
+					<div class="row ">
+						<div class="col " id="border">
+							<div class="row justify-content-center">
+								<div class="row_pl ">
 								<img src="../assets/me.png"" width="100" height="100" alt="me avatar" class="avatar">
 								</div>
 							</div>
-							<div class="row">
+							<div class="row justify-content-center">
 								<div class="row_pl">
 								<p id="player_points">100</p>
 								</div>
 							</div>
 						</div>
 						<div class="col">
-							<div class="row">
+							<div class="row justify-content-center">
 								<div class="row_pl">
 								<img src="../assets/serg.png"" width="100" height="100" alt="serg avatar" class="avatar">
 								</div>
 							</div>
-							<div class="row">
+							<div class="row justify-content-center">
 								<div class="row_pl">
 								<p id="player_points">120</p>
 								</div>
@@ -66,7 +66,7 @@
 				</div>
 				
 				<div class="row">
-					<button id="btn-exit">Выйти</button>
+					<button id="btn-exit" class="btn btn-outline-danger">Выйти</button>
 				</div>
 			</div>
 		</div>
@@ -77,7 +77,7 @@
 
 #app2 {
 	font-size: 26px;
-	font-family: serif;
+	font-family: sans-serif;
 }
 
 .main{
@@ -85,14 +85,14 @@
 }
 
 #btn-accept{
-	font-family: serif;
+	font-family: sans-serif;
 	margin-top: 15px;
-	font-size: 40px;
+	font-size: 35px;
 }
 
 #btn-exit{
-	font-family: serif;
-	font-size: 36px;
+	font-family: sans-serif;
+	font-size: 30px;
 	margin-bottom: 10px;
 	margin-left: 10px;
 }
@@ -103,6 +103,12 @@
 	border-radius:0;
 }
 
+.p2{
+	padding: 5px;
+	border: 2px solid #312a22;
+	border-radius:0;
+}
+
 .container{
 	margin-top: 30px;
 	border: 1px solid #312a22;
@@ -110,6 +116,7 @@
 
 #answ{
 	width: 400px;
+	font-size: 25px;
 }
 
 .row{
@@ -122,6 +129,11 @@
 
 .col{
 	margin-bottom: 10px;
+	
+}
+
+#border{
+	border-right: 1px solid #312a22;
 }
 
 .avatar{
@@ -130,10 +142,14 @@
 }
 
 #player_points{
-	padding-left: 20px;
+	
 }
 
 .question{
 	width: 990px;
+}
+
+#row{
+	border: 1px solid #312a22;
 }
 </style>

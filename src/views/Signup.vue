@@ -1,6 +1,6 @@
 <template>
   <div id="app2">
-    <div class="container">
+    <div class="container my-3 py-3 bg-white rounded shadow-sm">
         <form @submit="signup" class="form-signin">
           <h1 class="h3 mb-3 font-weight-normal">Регистрация</h1>
           <label for="inputLogin" class="sr-only">Логин</label>
@@ -11,6 +11,7 @@
           <input type="password" id="inputPassword" class="form-control" placeholder="Пароль" v-model="regisrationData.password" required>
           <label for="inputPassword2" class="sr-only">Повторите Пароль</label>
           <input type="password" id="inputPassword2" class="form-control" placeholder="Повторите Пароль" v-model="regisrationData.password2" required>
+          <p id="incorrectPswd">Пароли не совпадают</p>
 
           <button class="btn btn-lg btn-primary btn-block" type="submit">Зарегистрироваться</button>
         </form>
@@ -68,6 +69,10 @@ export default class SignUp extends Vue {
 
 .form-control{
   margin-bottom: 5px;
+}
+
+#incorrectPswd{
+  display: none;
 }
 
 </style>

@@ -2,13 +2,13 @@
 	<div id="app2">
 		<h1 id="h1">Итоги викторины</h1>
 		<div class="main">
-			<div class="container">
+			<div class="container my-3 py-1 bg-white rounded shadow-sm">
 				<div class="col">
 					<p class="points">Очки</p>
 				</div>
 				<div class="row">
 					<div class="col-6 col-md-4">
-						<p class="winner"><b>Победитель!</b></p>
+						<p class="winner"><font color="green"><b>Победитель!</b> </font></p>
 					</div>
 					<div class="col-12 col-md-8">
 						<div class="row">
@@ -19,7 +19,7 @@
 								<form action="" class="nick">Frostbolt</form>
 							</div>
 							<div class="col">
-								<p id="player_points">1000</p>
+								<p id="player_points">560</p>
 							</div>
 						</div>
 						<div class="row">
@@ -30,13 +30,13 @@
 								<form action="" class="nick">Tikinokys</form>
 							</div>
 							<div class="col">
-								<p id="player_points">900</p>
+								<p id="player_points">500</p>
 							</div>
 						</div>	
 					</div>
 				</div>
 				<div class="row">
-					<button id="btn-exit">Выйти</button>
+					<button id="btn-exit" class="btn btn-outline-danger">Выйти</button>
 				</div>
 			</div>
 
@@ -50,7 +50,7 @@
 
 #app2 {
   font-size: 26px;
-  font-family: serif;
+  font-family: sans-serif;
 }
 
 .main{
@@ -102,5 +102,6 @@
 
 .winner{
 	margin-top: 30px;
+	font-size: 40px;
 }
 </style>

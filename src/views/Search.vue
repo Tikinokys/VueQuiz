@@ -2,7 +2,7 @@
 	<div id="app2">
 		<div class="main">
 			<p class="search">Поиск соперников...</p>
-			<div class="container">
+			<div class="container my-3 py-1 bg-white rounded shadow-sm">
 				<div class="row">
 					<div class="col">
 						<img src="../assets/me.png"" width="100" height="100" alt="me avatar" class="avatar">
@@ -25,7 +25,7 @@
 
 #app2 {
   font-size: 26px;
-  font-family: serif;
+  font-family: sans-serif;
 }
 
 .main{
@@ -37,7 +37,7 @@
 }
 
 #btn{
-	font-family: serif;
+	font-family: sans-serif;
 	margin-top: 15px;
 	font-size: 36px;
 }

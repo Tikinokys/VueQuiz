@@ -14,7 +14,7 @@
 
 #app2 {
   font-size: 26px;
-  font-family: serif;
+  font-family: sans-serif;
 }
 
 .main{

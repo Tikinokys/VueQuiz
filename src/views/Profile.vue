@@ -1,40 +1,48 @@
 <template>
-	<div id="app2">
-		<div class="main">
-			<div class="container">
-				<div class="row">
-						<div class="col-5 col-md-3">
-					        <img src="../assets/me.png"" width="180" height="180" alt="me avatar" class="avatar">
-					    </div>
-					    <div class="col-13 col-md-9">
-					        <form action="" class="nick">Tikinokys</form>
-					    </div>
-				</div>
-				<div class="col">
+		<div id="app2" class="my-3 py-1 bg-white rounded shadow-sm">
+			<div class="main">
+				<div class="container">
 					<div class="row">
-						<hr align="left" width="1000" size="1" color="black" />
+							<div class="col-5 col-md-3">
+						        <img src="../assets/me.png"" width="180" height="180" alt="me avatar" class="avatar">
+						    </div>
+						    <div class="col-6 col-md-6">
+						        <form action="" class="nick">Tikinokys</form>
+						    </div>
+						    <div class="col-8 col-md-3">
+						        <button type="button" class="btn btn-outline-dark" id="btnEdit">Редактировать</button>
+						    </div>
 					</div>
-					<div class="row">
-						<div class="col">
-							<label>Очки: 100</label>
+					<div class="col">
+						<div class="row">
+							<hr align="left" width="1000" size="1" color="black" class="my-4"/>
 						</div>
-						<div class="col">
-							<label>Уровень: 1</label>
+						<div class="row py-2">
+							<div class="col">
+								<label>Очки: 100</label>
+							</div>
+							<div class="col">
+								<label>Уровень: 1</label>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 </template>
 
 
 
 <style lang="scss" scoped>
 
+#body{
+	background-color: green;
+}
+
 #app2 {
 	font-size: 26px;
-	font-family: serif;
+	font-family: sans-serif;
+	border: 1px solid #312a22;
 }
 
 .main{
@@ -57,7 +65,12 @@
 
 .container{
 	margin-top: 30px;
+	
+}
+
+#btnEdit{
 	border: 1px solid #312a22;
+	font-size: 20px;
 }
 
 

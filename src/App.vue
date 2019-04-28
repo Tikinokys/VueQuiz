@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Главная</router-link> |
+    <div id="nav" style="background-color: gray; color: gray" class="my-1 rounded shadow-sm">
+      <router-link to="/" >Главная</router-link> |
       <router-link to="/profile">Профиль</router-link> |
       <router-link to="/subjects">Выбор</router-link> |
       <router-link to="/search">Поиск противника</router-link> |
@@ -36,7 +36,7 @@
   font-weight: 500;
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: white;
     &.router-link-exact-active {
       color: #42b983;
     }

@@ -1,6 +1,6 @@
 <template>
   <div id="app2">
-    <div class="container">
+    <div class="container my-3 py-3 bg-white rounded shadow-sm">
         <form @submit="signin" class="form-signin">
           <h1 class="h3 mb-3 font-weight-normal">CQUIZ</h1>
           <label for="inputLogin" class="sr-only" >Логин</label>
@@ -45,7 +45,7 @@ export default class SignIn extends Vue {
   }
 
   public beforeRouteUpdate(to: any, from: any, next: () => {}) {
-    if(this.apiToken() == null){
+    if(this.apiToken.token == null){
       console.log('Token == null');
     }else{
       console.log('Token != null');

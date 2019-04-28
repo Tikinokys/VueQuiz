@@ -1,7 +1,7 @@
 <template>
-	<div id="app2">
+	<div id="app2" >
 		<div class="main">
-			<div class="container">
+			<div class="container my-3 py-1 bg-white rounded shadow-sm">
 				<div class="col">
 					<p class="search">Выберите предмет</p>
 					<div class="row">
@@ -37,11 +37,11 @@
 				</div>
 				<div class="row">
 					<div class="col">
-						<button id="btn-back">Назад</button>
+						<button id="btn-back" class="btn btn-outline-danger">Назад</button>
 					</div>
 
 					<div class="col">
-						<button id="btn-search">Поиск</button>
+						<button id="btn-search" class="btn btn-outline-success ">Поиск</button>
 					</div>
 				</div>
 			</div>
@@ -55,7 +55,7 @@
 
 #app2 {
   font-size: 26px;
-  font-family: serif;
+  font-family: sans-serif;
 }
 
 .main{
@@ -67,7 +67,7 @@
 }
 
 #btn{
-	font-family: serif;
+	font-family: sans-serif;
 	margin-bottom: 15px;
 	font-size: 36px;
 	width: 400px;
@@ -94,8 +94,8 @@
 }
 
 #btn-back{
-	font-family: serif;
-	font-size: 36px;
+	font-family: sans-serif;
+	font-size: 30px;
 	margin-bottom: 10px;
 	margin-left: 10px;
 	margin-right: 150px;
@@ -104,6 +104,7 @@
 
 #btn-search{
 	width: 140px;
+	font-size: 30px;
 }
 
 .option{
