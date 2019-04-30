@@ -40,17 +40,17 @@ export default class SignIn extends Vue {
   }
 
   public beforeRouteLeave (to: any, from: any, next: () => {}) {
-    console.log('beforeRouteLeave');
+    console.log(this.apiToken.token);
     next();
   }
 
   public beforeRouteUpdate(to: any, from: any, next: () => {}) {
-    if(this.apiToken.token == null){
-      console.log('Token == null');
-    }else{
-      console.log('Token != null');
-    }
+    this.g();
     next();
+  }
+
+  public g(){
+    console.log('123');
   }
 
   public signin(event: any) {

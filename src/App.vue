@@ -10,11 +10,24 @@
       <router-link to="/about">О викторине</router-link> |
       <router-link to="/signin">Вход</router-link> |
       <router-link to="/signup">Регистрация</router-link> |
-      <router-link to="/logout">Выйти</router-link>
+      <button @click="logout">Выйти</button>
     </div>
     <router-view/>
   </div>
 </template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+@Component
+export default class App extends Vue {
+  public logout(event: any) {
+    event.preventDefault();
+    this.$store.commit('logout');
+    this.$router.replace('/signin');
+  }
+}
+
+</script>
 
 <style lang="scss">
 

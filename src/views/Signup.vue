@@ -11,7 +11,7 @@
           <input type="password" id="inputPassword" class="form-control" placeholder="Пароль" v-model="regisrationData.password" required>
           <label for="inputPassword2" class="sr-only">Повторите Пароль</label>
           <input type="password" id="inputPassword2" class="form-control" placeholder="Повторите Пароль" v-model="regisrationData.password2" required>
-          <p id="incorrectPswd">Пароли не совпадают</p>
+          <p v-if="regisrationData.password2!='' && regisrationData.password!=regisrationData.password2">Пароли не совпадают</p>
 
           <button class="btn btn-lg btn-primary btn-block" type="submit">Зарегистрироваться</button>
         </form>
@@ -31,19 +31,17 @@ export default class SignUp extends Vue {
     password: '',
     password2: '',
   };
+
   constructor() {
     super();
   }
 
   public signup(event: any) {
-    if(this.regisrationData.password==this.regisrationData.password2){
-      event.preventDefault();
+    event.preventDefault();
+    if(this.regisrationData.password==this.regisrationData.password2){ 
       this.$store.dispatch('reg', this.regisrationData).then(() => {
         this.$router.replace('/signin');
       });
-    }else{
-      console.log('Пароли не совпадают');
-    }
   }
 
   get apiToken() {

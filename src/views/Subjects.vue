@@ -25,7 +25,7 @@
 							</select></p>
 						</form>
 					</div>
-					<p class="search">Выберите тип викторины</p>
+					<p class="search">Выберите сложность</p>
 					<div class="row">
 						<form action="">
 							<p><select class="option" size="1" name="Type">

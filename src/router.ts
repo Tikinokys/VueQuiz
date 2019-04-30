@@ -1,9 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import store from './store';
 
 Vue.use(Router);
 
-export default new Router({
+let router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -53,14 +54,21 @@ export default new Router({
       component: () => import('./views/Signin.vue'),
     },
     {
-      path: '/logout',
-      name: 'logout',
-      component: () => import('./views/Logout.vue'),
-    },
-    {
       path: '/signup',
       name: 'signup',
       component: () => import('./views/Signup.vue'),
     },
   ],
 });
+
+router.beforeEach((to, from, next) => {
+  store.dispatch('fetchAccessToken');
+  if (to.fullPath === '/signin') {
+    if (!!!store.state.apiToken) {
+      next('/');
+    }
+  }
+  next();
+});
+
+export default router;

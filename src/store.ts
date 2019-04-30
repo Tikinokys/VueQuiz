@@ -18,6 +18,12 @@ export default new Vuex.Store({
 		set(state: any, {type, items}) {
 			state[type] = items;
 		},
+
+		logout(state:any) {
+			if(!!state.apiToken){
+				state.apiToken = {};
+			}
+		},
 	},
 
   actions: {
@@ -47,16 +53,7 @@ export default new Vuex.Store({
 		});
 	},
 
-
-	logout({commit}, data: any) {
-		axios({
-			method: 'post',
-			url: `${apiHost}/accounts/signin/`,
-		}).then((resp: any) => {
-			commit('set', { type: 'apiToken', items: resp.data });
-		}, () => {
-			commit('set', { type: 'apiToken', items: {} });
-		});
-	},
   },
 });
+
+//commit - вызов мутации
