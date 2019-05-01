@@ -7,7 +7,7 @@
 						        <img src="../assets/me.png"" width="180" height="180" alt="me avatar" class="avatar">
 						    </div>
 						    <div class="col-6 col-md-6">
-						        <form action="" class="nick">Tikinokys</form>
+						        <p id="nick">Tikinokys</p>
 						    </div>
 						    <div class="col-8 col-md-3">
 						        <button type="button" class="btn btn-outline-dark" id="btnEdit">Редактировать</button>
@@ -31,7 +31,37 @@
 		</div>
 </template>
 
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
+
+Component.registerHooks([
+  'beforeRouteEnter',
+  'beforeRouteUpdate',
+  'beforeRouteLeave',
+]);
+
+@Component
+export default class Profile extends Vue {
+
+  constructor() {
+    super();
+  }
+
+  public beforeRouteLeave (to: any, from: any, next: () => {}) {
+    //console.log(this.apiToken.token);
+    next();
+  }
+
+  get apiToken() {
+    return this.$store.getters.apiToken;
+  }
+
+
+
+}
+
+</script>
 
 <style lang="scss" scoped>
 
@@ -57,7 +87,7 @@
 	margin-top: 10px;
 }
 
-.nick{
+#nick{
 	margin-top: 60px;
 	font-size: 46px;
 	text-align: left;

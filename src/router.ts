@@ -64,8 +64,13 @@ let router = new Router({
 router.beforeEach((to, from, next) => {
   store.dispatch('fetchAccessToken');
   if (to.fullPath === '/signin') {
-    if (!!!store.state.apiToken) {
+    if (store.state.accessToken!=null) {
       next('/');
+    }
+  }
+  if (to.fullPath === '/profile') {
+    if (store.state.accessToken==null) {
+      next('/signin');
     }
   }
   next();

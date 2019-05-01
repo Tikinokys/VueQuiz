@@ -8,6 +8,7 @@ let apiHost = 'http://localhost:8000';
 export default new Vuex.Store({
 	state: {
 		apiToken: {},
+		accessToken: null,
 	},
 	getters: {
 		apiToken: state => {
@@ -23,7 +24,12 @@ export default new Vuex.Store({
 			if(!!state.apiToken){
 				state.apiToken = {};
 			}
+			state.accessToken = null;
 		},
+
+		updateAccessToken: (state, accessToken) => {
+      		state.accessToken = accessToken;
+    	},
 	},
 
   actions: {
@@ -35,6 +41,8 @@ export default new Vuex.Store({
 			data,
 		}).then((resp: any) => {
 			commit('set', { type: 'apiToken', items: resp.data });
+			localStorage.setItem('accessToken', resp.data.token);
+			commit('updateAccessToken', resp.data.token);
 		}, () => {
 			commit('set', { type: 'apiToken', items: {} });
 		});
@@ -52,6 +60,15 @@ export default new Vuex.Store({
 			commit('set', { type: 'apiToken', items: {} });
 		});
 	},
+
+	logout({ commit }) {
+      localStorage.removeItem('accessToken');
+      commit('logout');
+    },
+
+	fetchAccessToken({ commit }) {
+      commit('updateAccessToken', localStorage.getItem('accessToken'));
+    },
 
   },
 });

@@ -42,6 +42,7 @@ export default class SignUp extends Vue {
       this.$store.dispatch('reg', this.regisrationData).then(() => {
         this.$router.replace('/signin');
       });
+    }
   }
 
   get apiToken() {

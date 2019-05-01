@@ -30,33 +30,34 @@ export default class SignIn extends Vue {
     username: '',
     password: '',
   };
+
+  public userT = {};
+
   constructor() {
     super();
   }
 
   public beforeRouteEnter (to: any, from: any, next: () => {}) {
-    console.log('beforeRouteEnter');
+    //console.log('beforeRouteEnter');
     next();
   }
 
   public beforeRouteLeave (to: any, from: any, next: () => {}) {
-    console.log(this.apiToken.token);
+    //console.log(this.apiToken.token);
     next();
   }
 
   public beforeRouteUpdate(to: any, from: any, next: () => {}) {
-    this.g();
-    next();
-  }
 
-  public g(){
-    console.log('123');
+    next();
   }
 
   public signin(event: any) {
     event.preventDefault();
     this.$store.dispatch('auth', this.loginData).then(() => {
-      this.$router.replace('/');
+      if(this.$store.state.accessToken!=null){
+        this.$router.replace('/');
+      }
     });
   }
 

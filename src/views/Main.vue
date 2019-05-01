@@ -9,7 +9,35 @@
 	</div>
 </template>
 
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
+
+Component.registerHooks([
+  'beforeRouteEnter',
+  'beforeRouteUpdate',
+  'beforeRouteLeave',
+]);
+
+@Component
+export default class Main extends Vue {
+
+  constructor() {
+    super();
+  }
+
+  public beforeRouteLeave (to: any, from: any, next: () => {}) {
+    //console.log(localStorage.getItem("userToken"));
+    next();
+  }
+
+  get apiToken() {
+    return this.$store.getters.apiToken;
+  }
+
+}
+
+</script>
 
 <style lang="scss" scoped>
 
