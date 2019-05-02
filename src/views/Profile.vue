@@ -57,8 +57,6 @@ export default class Profile extends Vue {
     return this.$store.getters.apiToken;
   }
 
-
-
 }
 
 </script>
