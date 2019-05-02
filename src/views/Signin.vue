@@ -55,7 +55,8 @@ export default class SignIn extends Vue {
   public signin(event: any) {
     event.preventDefault();
     this.$store.dispatch('auth', this.loginData).then(() => {
-      if(this.$store.state.accessToken!=null){
+      console.log(this.apiToken.token);
+      if(!!this.apiToken.token){
         this.$router.replace('/');
       }
     });

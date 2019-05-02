@@ -35,7 +35,7 @@ export default new Vuex.Store({
   actions: {
 	auth({commit}, data: any) {
 		data = `username=${data.username}&password=${data.password}`;
-		axios({
+		return axios({
 			method: 'post',
 			url: `${apiHost}/api-token-auth/`,
 			data,
@@ -43,7 +43,7 @@ export default new Vuex.Store({
 			commit('set', { type: 'apiToken', items: resp.data });
 			localStorage.setItem('accessToken', resp.data.token);
 			commit('updateAccessToken', resp.data.token);
-		}, () => {
+		}, (err:any) => {
 			commit('set', { type: 'apiToken', items: {} });
 		});
 	},
