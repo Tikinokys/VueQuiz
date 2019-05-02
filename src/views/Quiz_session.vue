@@ -6,8 +6,11 @@
 					<div class="col">
 						<p class="p1">Очки: 100</p>
 					</div>
-					<div class="col">
-						<p class="p2">28</p>
+					<div class="col" >
+						<div class="row justify-content-center" id="time">
+							<img src="../assets/time.png"" width="50" height="50" alt="time quiz" class="time">
+							<p class="p2">28</p>
+						</div>
 					</div>
 					<div class="col">
 						<p class="p1">Вопрос: 3/5</p>
@@ -104,9 +107,9 @@
 }
 
 .p2{
-	padding: 5px;
-	border: 2px solid #312a22;
-	border-radius:0;
+	padding-left: 10px;
+	font-size: 40px;
+	//border-radius:0;
 }
 
 .container{
@@ -151,5 +154,10 @@
 
 #row{
 	border: 1px solid #312a22;
+}
+
+#time{
+	//border: 1px solid #312a22;
+	margin-top: 5px;
 }
 </style>

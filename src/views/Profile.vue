@@ -4,10 +4,10 @@
 				<div class="container">
 					<div class="row">
 							<div class="col-5 col-md-3">
-						        <img src="../assets/me.png"" width="180" height="180" alt="me avatar" class="avatar">
+						        <img src="../assets/avatar.png"" width="180" height="180" alt="me avatar" class="avatar">
 						    </div>
 						    <div class="col-6 col-md-6">
-						        <p id="nick">Tikinokys</p>
+						        <p id="nick">{{this.$store.state.nickname}}</p>
 						    </div>
 						    <div class="col-8 col-md-3">
 						        <button type="button" class="btn btn-outline-dark" id="btnEdit">Редактировать</button>

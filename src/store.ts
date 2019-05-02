@@ -9,6 +9,7 @@ export default new Vuex.Store({
 	state: {
 		apiToken: {},
 		accessToken: null,
+		nickname: null,
 	},
 	getters: {
 		apiToken: state => {
@@ -25,10 +26,15 @@ export default new Vuex.Store({
 				state.apiToken = {};
 			}
 			state.accessToken = null;
+			state.nickname = null;
 		},
 
 		updateAccessToken: (state, accessToken) => {
       		state.accessToken = accessToken;
+    	},
+
+    	updateNickName: (state, nickname) => {
+      		state.nickname = nickname;
     	},
 	},
 
@@ -42,7 +48,9 @@ export default new Vuex.Store({
 		}).then((resp: any) => {
 			commit('set', { type: 'apiToken', items: resp.data });
 			localStorage.setItem('accessToken', resp.data.token);
+			localStorage.setItem('nickname', resp.data.username);
 			commit('updateAccessToken', resp.data.token);
+			commit('updateNickName', resp.data.username);
 		}, (err:any) => {
 			commit('set', { type: 'apiToken', items: {} });
 		});
@@ -63,11 +71,13 @@ export default new Vuex.Store({
 
 	logout({ commit }) {
       localStorage.removeItem('accessToken');
+      localStorage.removeItem('nickname');
       commit('logout');
     },
 
 	fetchAccessToken({ commit }) {
       commit('updateAccessToken', localStorage.getItem('accessToken'));
+      commit('updateNickName', localStorage.getItem('nickname'));
     },
 
   },

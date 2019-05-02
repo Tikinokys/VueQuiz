@@ -4,7 +4,7 @@
 		<h1 id="h1">CQUIZ</h1>
 		<div class="main">
 			<p>Проверьте свои знания в области высшей математики. </p>
-			<button id="btn" class="btn btn-outline-success">Начать играть</button>
+			<button id="btn" class="btn btn-outline-success" onclick="location.href = '/subjects'">Начать играть</button>
 		</div>
 	</div>
 </template>

@@ -37,7 +37,7 @@
 				</div>
 				<div class="row">
 					<div class="col">
-						<button id="btn-back" class="btn btn-outline-danger">Назад</button>
+						<button id="btn-back" class="btn btn-outline-danger" onclick="location.href = '/'">Назад</button>
 					</div>
 
 					<div class="col">
