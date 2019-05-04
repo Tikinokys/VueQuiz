@@ -4,36 +4,36 @@
 			<div class="container my-3 py-1 bg-white rounded shadow-sm">
 				<div class="row">
 					<div class="col">
-						<p class="p1">Очки: 100</p>
+						<p class="p1">{{points}}</p>
 					</div>
 					<div class="col" >
 						<div class="row justify-content-center" id="time">
 							<img src="../assets/time.png"" width="50" height="50" alt="time quiz" class="time">
-							<p class="p2">28</p>
+							<p class="p2">{{time}}</p>
 						</div>
 					</div>
 					<div class="col">
-						<p class="p1">Вопрос: 3/5</p>
+						<p class="p1">Вопрос: {{countQ}}/5</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="question">
-						<p>Как называется множество всех действительных чисел, заключенных между данными числами a и b (a < b), при этом сами эти числа не принадлежат рассматриваемому множеству чисел. </p>
+						<p>{{question}}</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-						<button id="answ" class="btn btn-outline-secondary btn-lg">Интервал</button>
+						<button id="answ" class="btn btn-outline-secondary btn-lg">{{answer[0]}}</button>
 					</div>
 					<div class="col">
-						<button id="answ" class="btn btn-outline-secondary btn-lg">Отрезок</button>
+						<button id="answ" class="btn btn-outline-secondary btn-lg">{{answer[1]}}</button>
 					</div>
 					<div class="w-100"></div>
 					<div class="col">
-						<button id="answ" class="btn btn-outline-secondary btn-lg">Окрестность</button>
+						<button id="answ" class="btn btn-outline-secondary btn-lg">{{answer[2]}}</button>
 					</div>
 					<div class="col">
-						<button id="answ" class="btn btn-outline-secondary btn-lg">Предел</button>
+						<button id="answ" class="btn btn-outline-secondary btn-lg">{{answer[3]}}</button>
 					</div>
 				</div>
 
@@ -44,24 +44,24 @@
 						<div class="col " id="border">
 							<div class="row justify-content-center">
 								<div class="row_pl ">
-								<img src="../assets/me.png"" width="100" height="100" alt="me avatar" class="avatar">
+								<img src="../assets/avatar.png"" width="100" height="100" alt="me avatar" class="avatar">
 								</div>
 							</div>
 							<div class="row justify-content-center">
 								<div class="row_pl">
-								<p id="player_points">100</p>
+								<p id="player_points">{{playerPoints[0]}}</p>
 								</div>
 							</div>
 						</div>
 						<div class="col">
 							<div class="row justify-content-center">
 								<div class="row_pl">
-								<img src="../assets/serg.png"" width="100" height="100" alt="serg avatar" class="avatar">
+								<img src="../assets/avatar.png"" width="100" height="100" alt="serg avatar" class="avatar">
 								</div>
 							</div>
 							<div class="row justify-content-center">
 								<div class="row_pl">
-								<p id="player_points">120</p>
+								<p id="player_points">{{playerPoints[1]}}</p>
 								</div>
 							</div>
 						</div>
@@ -75,6 +75,37 @@
 		</div>
 	</div>
 </template>
+
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+Component.registerHooks([
+  'beforeRouteEnter',
+  'beforeRouteUpdate',
+  'beforeRouteLeave',
+]);
+
+@Component
+export default class QuizSession extends Vue {
+
+  public question = 'Определитель с двумя равными строками равен..';
+  public answer = ['0','1','-1','2'];
+  public points = '100';
+  public countQ = '3';
+  public playerPoints = ['100','120'];
+  public time = '28';
+
+  constructor() {
+    super();
+  }
+
+  get apiToken() {
+    return this.$store.getters.apiToken;
+  }
+
+}
+
+</script>
 
 <style lang="scss" scoped>
 

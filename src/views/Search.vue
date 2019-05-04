@@ -5,13 +5,13 @@
 			<div class="container my-3 py-1 bg-white rounded shadow-sm">
 				<div class="row">
 					<div class="col">
-						<img src="../assets/me.png"" width="100" height="100" alt="me avatar" class="avatar">
+						<img src="../assets/avatar.png"" width="100" height="100" alt="me avatar" class="avatar">
 					</div>
 					<div class="col">
-						<img src="../assets/serg.png"" width="100" height="100" alt="serg avatar" class="avatar">
+						<img src="../assets/avatar.png"" width="100" height="100" alt="serg avatar" class="avatar">
 					</div>
 					<div class="col">
-						<form action="" class="players">2/2</form>
+						<form action="" class="players">{{countP}}/2</form>
 					</div>
 				</div>
 			</div>
@@ -19,7 +19,31 @@
 	</div>
 </template>
 
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
+Component.registerHooks([
+  'beforeRouteEnter',
+  'beforeRouteUpdate',
+  'beforeRouteLeave',
+]);
+
+@Component
+export default class QuizSession extends Vue {
+
+  public countP = '2';
+
+  constructor() {
+    super();
+  }
+
+  get apiToken() {
+    return this.$store.getters.apiToken;
+  }
+
+}
+
+</script>
 
 <style lang="scss" scoped>
 

@@ -10,10 +10,22 @@ export default new Vuex.Store({
 		apiToken: {},
 		accessToken: null,
 		nickname: null,
+		subject: null,
+		difficult: null,
+		topic: null
 	},
 	getters: {
 		apiToken: state => {
 			return state.apiToken;
+		},
+		subject: state => {
+			return state.subject;
+		},
+		difficult: state => {
+			return state.difficult;
+		},
+		topic: state => {
+			return state.topic;
 		},
 	},
 	mutations: {
@@ -79,6 +91,42 @@ export default new Vuex.Store({
       commit('updateAccessToken', localStorage.getItem('accessToken'));
       commit('updateNickName', localStorage.getItem('nickname'));
     },
+
+
+	subject({commit}) {
+		axios({
+			method: 'get',
+			url: `${apiHost}/subject_data/`,
+		}).then((resp: any) => {
+			commit('set', { type: 'subject', items: JSON.parse(resp.data) });
+		}, () => {
+			commit('set', { type: 'subject', items: null });
+		});
+	},
+
+
+	difficult({commit}) {
+		axios({
+			method: 'get',
+			url: `${apiHost}/difficult_data/`,
+		}).then((resp: any) => {
+			commit('set', { type: 'difficult', items: JSON.parse(resp.data) });
+		}, () => {
+			commit('set', { type: 'difficult', items: null });
+		});
+	},
+
+
+	topic({commit}, data: any) {
+		axios({
+			method: 'get',
+			url: `${apiHost}/topic_data/${data.subject}/${data.difficult}`,
+		}).then((resp: any) => {
+			commit('set', { type: 'topic', items: JSON.parse(resp.data) });
+		}, () => {
+			commit('set', { type: 'topic', items: null });
+		});
+	},
 
   },
 });

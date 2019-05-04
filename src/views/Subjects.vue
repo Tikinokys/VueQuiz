@@ -5,34 +5,21 @@
 				<div class="col">
 					<p class="search">Выберите предмет</p>
 					<div class="row">
-						<form action="">
-							<p><select class="option" size="1" name="Subjects">
-							<option value="s1" selected>Математический анализ</option>
-							<option value="s2">Дифференциальные уравнения</option>
-							<option value="s3">Дискретная математика</option>
-							<option value="s4">Комплексный анализ</option>
-							</select></p>
-						</form>
-					</div>
-					<p class="search">Выберите тему</p>
-					<div class="row">
-						<form action="">
-							<p><select class="option" size="1" name="Topics">
-							<option value="t1" selected>Матрицы</option>
-							<option value="t2">Определители</option>
-							<option value="t3">Пределы</option>
-							<option value="t4">Интегралы</option>
-							</select></p>
-						</form>
+						<p><select class="option" size="1" name="Subjects" v-model="subject" @change="onValuesChange">
+						<option v-bind:value="s.pk" v-for="s in this.subjects">{{s.fields.name}}</option>
+						</select></p>
 					</div>
 					<p class="search">Выберите сложность</p>
 					<div class="row">
-						<form action="">
-							<p><select class="option" size="1" name="Type">
-							<option value="type1" selected>Теория</option>
-							<option value="type2">Задачи</option>
-							</select></p>
-						</form>
+						<p><select class="option" size="1" name="Difficult" v-model="difficult" @change="onValuesChange">
+						<option v-bind:value="d.pk" v-for="d in this.difficults">{{d.fields.name}}</option>
+						</select></p>
+					</div>
+					<p class="search">Выберите тему</p>
+					<div class="row">
+						<p><select class="option" size="1" name="Topics">
+						<option v-bind:value="t.pk" v-for="t in this.topics">{{t.fields.name}}</option>
+						</select></p>
 					</div>
 				</div>
 				<div class="row">
@@ -49,7 +36,54 @@
 	</div>
 </template>
 
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
+Component.registerHooks([
+  'beforeRouteEnter',
+  'beforeRouteUpdate',
+  'beforeRouteLeave',
+]);
+
+@Component
+export default class QuizSession extends Vue {
+
+  constructor() {
+    super();
+  }
+  public subject = null;
+  public difficult = null;
+
+  public mounted(){
+  	 this.$store.dispatch('subject');
+  	 this.$store.dispatch('difficult');
+  }
+
+  public onValuesChange(){
+  	if(!!this.subject && !!this.difficult){
+  		this.$store.dispatch('topic', {subject:this.subject, difficult:this.difficult});
+  	}
+  }
+
+  get subjects(){
+  	return this.$store.getters.subject;
+  }
+
+  get difficults(){
+  	return this.$store.getters.difficult;
+  }
+
+  get topics(){
+  	return this.$store.getters.topic;
+  }
+
+  get apiToken() {
+    return this.$store.getters.apiToken;
+  }
+
+}
+
+</script>
 
 <style lang="scss" scoped>
 

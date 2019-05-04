@@ -13,24 +13,24 @@
 					<div class="col-12 col-md-8">
 						<div class="row">
 							<div class="col">
-								<img src="../assets/serg.png"" width="130" height="130" alt="serg avatar" class="avatar">
+								<img src="../assets/avatar.png"" width="130" height="130" alt="serg avatar" class="avatar">
 							</div>
 							<div class="col">
-								<form action="" class="nick">Frostbolt</form>
+								<form action="" class="nick">{{nicknameP[0]}}</form>
 							</div>
 							<div class="col">
-								<p id="player_points">560</p>
+								<p id="player_points">{{pointsP[0]}}</p>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col">
-								<img src="../assets/me.png"" width="130" height="130" alt="me avatar" class="avatar">
+								<img src="../assets/avatar.png"" width="130" height="130" alt="me avatar" class="avatar">
 							</div>
 							<div class="col">
-								<form action="" class="nick">Tikinokys</form>
+								<form action="" class="nick">{{nicknameP[1]}}</form>
 							</div>
 							<div class="col">
-								<p id="player_points">500</p>
+								<p id="player_points">{{pointsP[1]}}</p>
 							</div>
 						</div>	
 					</div>
@@ -44,7 +44,32 @@
 	</div>
 </template>
 
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
+Component.registerHooks([
+  'beforeRouteEnter',
+  'beforeRouteUpdate',
+  'beforeRouteLeave',
+]);
+
+@Component
+export default class QuizSession extends Vue {
+
+  public nicknameP = ['Frostbolt','Tikinokys'];
+  public pointsP = ['560','500'];
+
+  constructor() {
+    super();
+  }
+
+  get apiToken() {
+    return this.$store.getters.apiToken;
+  }
+
+}
+
+</script>
 
 <style lang="scss" scoped>
 
