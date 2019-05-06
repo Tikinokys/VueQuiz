@@ -21,20 +21,11 @@
 						<p>{{question}}</p>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col">
+				<div class="answers_grid">
 						<button id="answ" class="btn btn-outline-secondary btn-lg">{{answer[0]}}</button>
-					</div>
-					<div class="col">
 						<button id="answ" class="btn btn-outline-secondary btn-lg">{{answer[1]}}</button>
-					</div>
-					<div class="w-100"></div>
-					<div class="col">
 						<button id="answ" class="btn btn-outline-secondary btn-lg">{{answer[2]}}</button>
-					</div>
-					<div class="col">
 						<button id="answ" class="btn btn-outline-secondary btn-lg">{{answer[3]}}</button>
-					</div>
 				</div>
 
 					<button id="btn-accept" class="btn btn-success">Ответить</button>
@@ -88,12 +79,12 @@ Component.registerHooks([
 @Component
 export default class QuizSession extends Vue {
 
-  public question = 'Определитель с двумя равными строками равен..';
-  public answer = ['0','1','-1','2'];
-  public points = '100';
-  public countQ = '3';
-  public playerPoints = ['100','120'];
-  public time = '28';
+  public question = 'Дифференцируемая функция может иметь экстремум в тех точках, где..';
+  public answer = ['Производная равна нулю или не существует','Производная не существует','Производная равна нулю','Производная меньше нуля'];
+  public points = '80';
+  public countQ = '2';
+  public playerPoints = ['60','40'];
+  public time = '25';
 
   constructor() {
     super();
@@ -180,7 +171,9 @@ export default class QuizSession extends Vue {
 }
 
 .question{
-	width: 990px;
+	width: 970px;
+	margin-left: 15px;
+	margin-right: 15px;
 }
 
 #row{
@@ -190,5 +183,12 @@ export default class QuizSession extends Vue {
 #time{
 	//border: 1px solid #312a22;
 	margin-top: 5px;
+}
+
+.answers_grid{
+	display: grid;
+	grid-template-columns:1fr 1fr;
+	grid-template-rows:1fr 1fr;
+	grid-gap: 15px;
 }
 </style>

@@ -57,7 +57,7 @@ Component.registerHooks([
 export default class QuizSession extends Vue {
 
   public nicknameP = ['Frostbolt','Tikinokys'];
-  public pointsP = ['560','500'];
+  public pointsP = ['480','430'];
 
   constructor() {
     super();

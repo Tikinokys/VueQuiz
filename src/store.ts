@@ -12,7 +12,8 @@ export default new Vuex.Store({
 		nickname: null,
 		subject: null,
 		difficult: null,
-		topic: null
+		topic: null,
+		game: {},
 	},
 	getters: {
 		apiToken: state => {
@@ -26,6 +27,9 @@ export default new Vuex.Store({
 		},
 		topic: state => {
 			return state.topic;
+		},
+		game: state => {
+			return state.game;
 		},
 	},
 	mutations: {
@@ -125,6 +129,18 @@ export default new Vuex.Store({
 			commit('set', { type: 'topic', items: JSON.parse(resp.data) });
 		}, () => {
 			commit('set', { type: 'topic', items: null });
+		});
+	},
+
+	search({commit}, data: any) {
+		return axios({
+			method: 'post',
+			url: `${apiHost}/join_game/`,
+			data,
+		}).then((resp: any) => {
+			commit('set', { type: 'game', items: JSON.parse(resp.data) });
+		}, (err:any) => {
+			commit('set', { type: 'game', items: {} });
 		});
 	},
 

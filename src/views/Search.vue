@@ -11,7 +11,7 @@
 						<img src="../assets/avatar.png"" width="100" height="100" alt="serg avatar" class="avatar">
 					</div>
 					<div class="col">
-						<form action="" class="players">{{countP}}/2</form>
+						<form action="" class="players">{{countP}}/{{countAll}}</form>
 					</div>
 				</div>
 			</div>
@@ -32,6 +32,7 @@ Component.registerHooks([
 export default class QuizSession extends Vue {
 
   public countP = '2';
+  public countAll = '2';
 
   constructor() {
     super();
