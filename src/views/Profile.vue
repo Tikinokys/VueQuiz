@@ -19,7 +19,7 @@
 						</div>
 						<div class="row py-2">
 							<div class="col">
-								<label>Очки: 100</label>
+								<label>Очки: 0</label>
 							</div>
 							<div class="col">
 								<label>Уровень: 1</label>

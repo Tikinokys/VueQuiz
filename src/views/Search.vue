@@ -11,7 +11,10 @@
 						<img src="../assets/avatar.png"" width="100" height="100" alt="serg avatar" class="avatar">
 					</div>
 					<div class="col">
-						<form action="" class="players">{{countP}}/{{countAll}}</form>
+						<img src="../assets/avatar.png"" width="100" height="100" alt="serg avatar" class="avatar">
+					</div>
+					<div class="col">
+						<form action="" class="players">{{game.participants_count}}/{{game.participants_count+game.participants_needed}}</form>
 					</div>
 				</div>
 			</div>
@@ -29,10 +32,7 @@ Component.registerHooks([
 ]);
 
 @Component
-export default class QuizSession extends Vue {
-
-  public countP = '2';
-  public countAll = '2';
+export default class Search extends Vue {
 
   constructor() {
     super();
@@ -40,6 +40,16 @@ export default class QuizSession extends Vue {
 
   get apiToken() {
     return this.$store.getters.apiToken;
+  }
+
+  get game(){
+  	return this.$store.getters.game;
+  }
+
+  public mounted(){
+  	setInterval(()=>{
+  		this.$store.dispatch('statusCheck', {lobby_id:this.game.lobby_id});
+  	}, 3000)
   }
 
 }

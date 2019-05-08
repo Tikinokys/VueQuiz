@@ -87,7 +87,9 @@ export default class QuizSession extends Vue {
 
   public search(event: any) {
   	event.preventDefault();
-    this.$store.dispatch('search', {id_subject:this.subject,id_difficult:this.difficult,id_topic:this.topic,username:localStorage.getItem('nickname')});
+    this.$store.dispatch('search', {id_subject:this.subject,id_difficult:this.difficult,id_topic:this.topic,username:localStorage.getItem('nickname')}).then(() => {
+    		this.$router.replace('/search');
+    	});
   }
 
 }

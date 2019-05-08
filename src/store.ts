@@ -30,7 +30,7 @@ export default new Vuex.Store({
 		},
 		game: state => {
 			return state.game;
-		},
+		},		
 	},
 	mutations: {
 		set(state: any, {type, items}) {
@@ -52,6 +52,7 @@ export default new Vuex.Store({
     	updateNickName: (state, nickname) => {
       		state.nickname = nickname;
     	},
+
 	},
 
   actions: {
@@ -138,9 +139,21 @@ export default new Vuex.Store({
 			url: `${apiHost}/join_game/`,
 			data,
 		}).then((resp: any) => {
-			commit('set', { type: 'game', items: JSON.parse(resp.data) });
+			commit('set', { type: 'game', items: resp.data });
 		}, (err:any) => {
 			commit('set', { type: 'game', items: {} });
+		});
+	},
+
+	statusCheck({commit}, data: any) {
+		return axios({
+			method: 'post',
+			url: `${apiHost}/status_check/`,
+			data,
+		}).then((resp: any) => {
+			commit('set', { type: 'game', items: resp.data });
+		}, (err:any) => {
+			console.log("Error",err)
 		});
 	},
 
